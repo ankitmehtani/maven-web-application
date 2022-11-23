@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+
+    tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+        maven "Maven3.8.6"
+    }//tools closing
+options {
+  buildDiscarder logRotator(artifactDaysToKeepStr: '90', artifactNumToKeepStr: '5', daysToKeepStr: '90', numToKeepStr: '5')
+        }
+    stages {
+        stage('Fetch Code') {
+            steps {
+                // Get some code from a GitHub repository
+                git credentialsId: 'd3305227-37df-443e-b71a-f2ed60683026', url: 'https://github.com/ankitmehtani/maven-web-application.git'
+            }//steps closing
+            
+        }//stage closing
+        stage('Build')
+        {
+		    steps {
+            sh "mvn clean package"
+			}//steps closing
+			
+        }//stage closing
+		
+		stage('Sonarqube Report')
+		{
+		    steps {
+			sh "mvn sonar:sonar"
+			}//steps closing
+		}//stage closing
+		
+		stage('nexus')
+		{
+	       steps
+		    {
+			sh "mvn deploy"
+			}//steps closing
+		}//stage closing
+				
+	}//stages closing
+	
+}//pipeline closing
