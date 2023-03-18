@@ -98,13 +98,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>Ankit Mehtani repo</name>
-	      <url>http://54.211.109.2:8081/#admin/repository/repositories:AnkitMehtani-Release/</url>
+	      <url>http://54.211.109.2:8081/repository/AnkitMehtani-Release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Mithun Technologies Snapshot Nexus Repository </name>
-	      <url>http://54.211.109.2:8081/#admin/repository/repositories:AnkitMehtani-Snapshot/</url>
+	      <url>http://54.211.109.2:8081/repository/AnkitMehtani-Snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
