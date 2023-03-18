@@ -97,13 +97,13 @@
 	
 	    <repository>
 	      <id>nexus</id>
-	      <name>Ankit Mehtani repo</name>
+	      <name>project-release</name>
 	      <url>http://54.211.109.2:8081/repository/project-release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
-	      <name>Ankit Mehtani repo</name>
+	      <name>project-snapshot</name>
 	      <url>http://54.211.109.2:8081/repository/project-snapshot/</url>
 	    </snapshotRepository>
 	    
