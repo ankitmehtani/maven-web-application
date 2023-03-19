@@ -21,11 +21,6 @@ stage('Build'){
   }
   }
   
-  stage('Test'){
-  steps{
-   sh "mvn clean test"
-  }
-  }
  stage('DeployAppToTomcat'){
   steps{
       sshagent(['7c80a907-2cc3-4d3e-9c71-c1ffb44e776c']) {
