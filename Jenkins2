@@ -15,17 +15,19 @@ stages{
     git credentialsId: 'd3f432a3-8763-4041-a198-c6a90965f280', url: 'https://github.com/ankitmehtani/maven-web-application.git'
   }
 }
-stage('Build'){
-  steps{
-   sh "mvn clean package"
-  }
-  }
-  
-stage('Test'){
-  steps{
-   sh "mvn test"
-  }
-  }
+
+stage('Build and test')
+{
+parallel(
+RunTests: {
+sh "mvn clean test"
+},
+Build: {
+sh "mvn clean package"
+}
+)
+}
+
  stage('DeployAppToTomcat'){
   steps{
       sshagent(['7c80a907-2cc3-4d3e-9c71-c1ffb44e776c']) {
