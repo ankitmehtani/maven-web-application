@@ -18,6 +18,7 @@ stages{
 
 stage('Build and test')
 {
+steps{
 parallel(
 RunTests: {
 sh "mvn clean test"
@@ -26,6 +27,7 @@ Build: {
 sh "mvn clean package"
 }
 )
+}
 }
 
  stage('DeployAppToTomcat'){
