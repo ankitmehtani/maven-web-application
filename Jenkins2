@@ -9,6 +9,11 @@ options {
   buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '5', numToKeepStr: '5')
 }
 
+parameters {
+  choice choices: ['Development', 'master', 'test'], description: 'Success ', name: 'BranchName'
+}
+
+
 stages{
     stage('Checkout Code') {
   steps {
