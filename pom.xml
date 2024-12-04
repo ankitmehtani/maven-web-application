@@ -98,13 +98,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>project-release</name>
-	      <url>http://54.211.109.2:9980/AnkitRepo/repository/project-release/</url>
+	      <url>http://54.81.140.63:8081/repository/maven-releases/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>project-snapshot</name>
-	      <url>http://54.211.109.2:9980/AnkitRepo/repository/project-snapshot/</url>
+	      <url>http://54.81.140.63:8081/repository/maven-snapshots/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
