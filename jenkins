@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+    tools {
+        maven 'Maven 3.3.9'
+    }
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checking out code from the repository'
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'PATT', url: 'https://github.com/ankitmehtani/maven-web-application.git']])
+            }
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Building .war'
+                sh 'mvn clean package'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+                // Add your test steps here
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+                // Add your deploy steps here
+            }
+        }
+    }
+}
