@@ -21,8 +21,8 @@
 		<spring.version>5.1.2.RELEASE</spring.version>
 		<junit.version>4.11</junit.version>
 		<log4j.version>1.2.17</log4j.version>
-		<sonar.host.url>http://54.234.148.189:9000/</sonar.host.url>
-		<sonar.login>sqa_74d12a215eed9ddedee9698ef9fb311d9ed3a662</sonar.login>
+		<sonar.host.url>http://18.205.240.233:9000/</sonar.host.url>
+		<sonar.login>sqa_437c96c3395ecda9cf75d2aa2534f7f3ac502b08</sonar.login>
 		
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -98,13 +98,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>project-release</name>
-	      <url>http://54.211.109.2:9980/AnkitRepo/repository/project-release/</url>
+	      <url>http://18.207.121.102:8081/#admin/repository/repositories:Project-Release</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>project-snapshot</name>
-	      <url>http://54.211.109.2:9980/AnkitRepo/repository/project-snapshot/</url>
+	      <url>http://18.207.121.102:8081/#admin/repository/repositories:Project-Snapshot</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>

@@ -11,7 +11,6 @@ pipeline {
                 checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'PATT', url: 'https://github.com/ankitmehtani/maven-web-application.git']])
             }
             }
-        }
 
         stage('Build') {
             steps {
@@ -19,16 +18,25 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
-        stage('Test') {
+        stage('Quality Analysis') {
             steps {
-                echo 'Testing...'
-                // Add your test steps here
+                echo 'Running SonarQube analysis'
+                withSonarQubeEnv('SonarQube') {
+                    sh 'mvn sonar:sonar'
+                }
             }
+        }
+        stage('nexus repository') {
+            steps {
+                echo 'Deploying to Nexus Repository'
+                sh 'mvn deploy'
+            }
+            
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying...'
-                // Add your deploy steps here
+                echo 'Deploying to Tomcat'
+                sh 'mvn tomcat7:redeploy'
             }
         }
     }
